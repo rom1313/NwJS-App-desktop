@@ -8,6 +8,7 @@ var win = nw.Window.get();
 /* var fs = require("fs"); */
 /* win.setAlwaysOnTop(true) */
 win.setPosition("center");
+win.setResizable(false);
 /* fs.writeFileSync("test.txt", "tyyyyyy", (err) => {
   if (err) throw err;
 }); */
@@ -50,7 +51,6 @@ window.ondblclick = (e) => {
 /* window.oncontextmenu = () => {
   return false;
 }; */
-/* win.setResizable(false); */
 
 document.querySelector("button").addEventListener("click", () => {
   var htmlToImage = require("html-to-image");
@@ -70,7 +70,7 @@ document.querySelector("button").addEventListener("click", () => {
 // todo ---------------------------------------------------------------------------- NODE JS --------------------------------------->
 // todo -----------------------------------------------------------------------------------------------------------------------------
 
-var download = require("downloadjs");
+
 
 // todo transform blob url
 function b64toBlob(dataURI) {
@@ -98,50 +98,3 @@ function b64toBlob(dataURI) {
 
 // todo PHASER ------------------------------------------------------------
 
-class Acceuil extends Phaser.Scene {
-  constructor() {
-    super("Acceuil");
-  } // nom de la scene
-
-  //TODO ------- PRELOAD -----
-
-  preload() {
-    this.load.image("fond", "./asset/jeu/img/fond.png"); // import fond de scene
-  }
-  //TODO ------- CREATE -----
-
-  create() {
-    const touche = this.input.keyboard.addKeys("Z,S,Q,D,A,B,C,E,F,G,H,I,J,K,L,M,N,O,P,R,T,U,V,W,X,Y,ESC,SPACE"); // creation des touches
-
-    const camera = this.cameras.main; // creation d'une camera
-    camera.fadeIn(1500, 1);
-
-    const touchesclavierFLECHES = this.input.keyboard.createCursorKeys(); // creation des touches fléchés
-
-    this.background = this.add.image(160, 720, "fond");
-
-    // todo ------------- Colisions ---------------------->
-  } // fin de create ()
-  //TODO ------- UPDATE -----
-
-  update() {} // fin update()
-
-  //TODO ------- FIN DE SCENE -----
-}
-
-var config = {
-  type: Phaser.AUTO,
-  width: 1280,
-  height: 720,
-  pixelArt: true,
-  resolution: window.devicePixelRatio,
-  physics: {
-    default: "arcade",
-    arcade: {
-      gravity: { y: 0 },
-    },
-  },
-  scene: [Acceuil],
-};
-
-var game = new Phaser.Game(config);
