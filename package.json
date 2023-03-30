@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "main": "index.html",
+  "window": {
+    "height": 720,
+    "width": 1280,
+    "toolbar": false,
+    "transparent": false,
+    "frame": false,
+    "icon": "asset/logo.png",
+    "chromium-args": "--mixed-context,--ignore-gpu-blacklist"
+  },
+  "dependencies": {
+    "@rom13/genius": "^1.2.30",
+    "downloadjs": "^1.4.7",
+    "html-to-image": "^1.11.11",
+    "phaser": "^3.55.2"
+  },
+  "devDependencies": {
+    "nwjs-builder-phoenix": "^1.15.0"
+  },
+  "scripts": {
+    "dist": "build --tasks win-x64 --mirror https://dl.nwjs.io/ .",
+    "start": "run --x64 --mirror https://dl.nwjs.io/ ."
+  }
+}
